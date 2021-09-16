@@ -50,13 +50,13 @@ function get_args( $group = null, $label = null ) {
 	$paths['app_views']       = $paths['app'] . 'views/';
 
 	/* plugin arguments */
-	$plugin['prefix']     = 'wppf';
-	$plugin['name']       = 'WP Plugin Framework';
-	$plugin['slug']       = 'wp-plugin-framework';
-	$plugin['textdomain'] = $plugin['slug'];
-	$plugin['url']        = plugin_dir_url( __FILE__ ); // plugin directory URL.
-	$plugin['basename']   = plugin_basename( __FILE__ ); // plugin_dirname/filename.php.
-	$plugin['version']    = '1.0.0';
+	$plugin['prefix']   = 'wppf';
+	$plugin['name']     = 'WP Plugin Framework';
+	$plugin['slug']     = 'wp-plugin-framework';
+	$plugin['url']      = plugin_dir_url( __FILE__ ); // plugin directory URL.
+	$plugin['basename'] = plugin_basename( __FILE__ ); // plugin_dirname/filename.php.
+	$plugin['version']  = '1.0.0';
+	// $plugin['textdomain'] = $plugin['slug']; // currently using hardcoded textdomain.
 
 	/* database arguments */
 	$database['version']  = '1.0.0';
