@@ -25,12 +25,15 @@ class Uninstaller {
 
 		$args = \WpPluginFramework\get_args();
 
-		Model::drop_table( $args['database']['table_01'] );
+		if ( '1' === get_option( $args['options']['delete_on_uninstall'] ) ) {
 
-		delete_option( $args['options']['version'] );
-		delete_option( $args['options']['db_version'] );
-		delete_option( $args['options']['delete_on_uninstall'] );
-		delete_option( $args['options']['settings'] );
+			Model::drop_table( $args['database']['table_01'] );
+
+			delete_option( $args['options']['version'] );
+			delete_option( $args['options']['db_version'] );
+			delete_option( $args['options']['delete_on_uninstall'] );
+			delete_option( $args['options']['settings'] );
+		}
 
 	}
 
