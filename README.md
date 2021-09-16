@@ -1,7 +1,7 @@
 # WP Plugin Framework
 
 An extensible WordPress Plugin Framework for WordPress Plugin developers.\
-Inspired by [WordPress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
+Inspired by and coded starting from [WordPress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate).
 
 ## Features
 
