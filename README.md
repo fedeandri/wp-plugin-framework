@@ -8,7 +8,7 @@ Inspired by and coded starting from [WordPress Plugin Boilerplate](https://githu
 * The `wp-plugin-framework` directory contains a fully executable WordPress plugin.
 * The WP Plugin Framework is based on the [Plugin API](http://codex.wordpress.org/Plugin_API), [Coding Standards](http://codex.wordpress.org/WordPress_Coding_Standards), and [Documentation Standards](https://make.wordpress.org/core/handbook/best-practices/inline-documentation-standards/php/).
 * All classes, functions, and variables are documented so that you know what you need to change.
-* The WP Plugin Framework uses a directory/file organization scheme that makes it easy to organize your files following a Model View Controller architecture.
+* The WP Plugin Framework uses a directory/file organization scheme that makes it easy to organize your files following a [Model View Controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 
 ## Installation
 
