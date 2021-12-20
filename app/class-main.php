@@ -81,7 +81,8 @@ class Main extends Base {
 	 */
 	private function set_locale() {
 
-		$args = $this->args;
+		$args = array();
+		$args = $this->get_args();
 
 		$internationalizer = new Internationalizer( $args );
 
@@ -135,9 +136,6 @@ class Main extends Base {
 
 		$this->loader->add_action( 'wp_head', $shortcodes_controller, 'print_ajax_params' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $shortcodes_controller, 'register_files' );
-
-		$args = array();
-		$args = $this->args;
 
 		$data_model = new Data();
 

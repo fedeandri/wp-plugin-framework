@@ -24,7 +24,7 @@ class Internationalizer extends Base {
 	public function load_plugin_textdomain() {
 
 		$result = load_plugin_textdomain(
-			$this->get_args( 'plugin', 'textdomain' ),
+			'wp-plugin-framework',
 			false,
 			$this->get_args( 'paths', 'languages' )
 		);
