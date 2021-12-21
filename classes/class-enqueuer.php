@@ -136,14 +136,14 @@ class Enqueuer extends Base {
 
 		switch ( $file_parts['file_extension'] ) {
 			case 'css':
-				$file_parts['enqueue_name'] = $args['prefix'] . '-' . $file_parts['file_name'];
-				$file_parts['file_path']    = $args['root_path'] . 'assets/css/' . $file;
-				$file_parts['file_url']     = $args['root_url'] . 'assets/css/' . $file;
+				$file_parts['enqueue_name'] = $args['plugin']['prefix'] . '-' . $file_parts['file_name'];
+				$file_parts['file_path']    = $args['paths']['root'] . 'assets/css/' . $file;
+				$file_parts['file_url']     = $args['plugin']['url'] . 'assets/css/' . $file;
 				break;
 			case 'js':
-				$file_parts['enqueue_name'] = $args['prefix'] . '-' . $file_parts['file_name'];
-				$file_parts['file_path']    = $args['root_path'] . 'assets/js/' . $file;
-				$file_parts['file_url']     = $args['root_url'] . 'assets/js/' . $file;
+				$file_parts['enqueue_name'] = $args['plugin']['prefix'] . '-' . $file_parts['file_name'];
+				$file_parts['file_path']    = $args['paths']['root'] . 'assets/js/' . $file;
+				$file_parts['file_url']     = $args['plugin']['url'] . 'assets/js/' . $file;
 				break;
 		}
 
