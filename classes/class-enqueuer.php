@@ -125,6 +125,9 @@ class Enqueuer extends Base {
 
 		$file_parts = array();
 		$matches    = array();
+		$args       = array();
+
+		$args = $this->get_args();
 
 		preg_match( '/^(.+)\.(js|css)$/', $file, $matches );
 
@@ -133,14 +136,14 @@ class Enqueuer extends Base {
 
 		switch ( $file_parts['file_extension'] ) {
 			case 'css':
-				$file_parts['enqueue_name'] = $this->args['prefix'] . '-' . $file_parts['file_name'];
-				$file_parts['file_path']    = $this->args['root_path'] . 'assets/css/' . $file;
-				$file_parts['file_url']     = $this->args['root_url'] . 'assets/css/' . $file;
+				$file_parts['enqueue_name'] = $args['prefix'] . '-' . $file_parts['file_name'];
+				$file_parts['file_path']    = $args['root_path'] . 'assets/css/' . $file;
+				$file_parts['file_url']     = $args['root_url'] . 'assets/css/' . $file;
 				break;
 			case 'js':
-				$file_parts['enqueue_name'] = $this->args['prefix'] . '-' . $file_parts['file_name'];
-				$file_parts['file_path']    = $this->args['root_path'] . 'assets/js/' . $file;
-				$file_parts['file_url']     = $this->args['root_url'] . 'assets/js/' . $file;
+				$file_parts['enqueue_name'] = $args['prefix'] . '-' . $file_parts['file_name'];
+				$file_parts['file_path']    = $args['root_path'] . 'assets/js/' . $file;
+				$file_parts['file_url']     = $args['root_url'] . 'assets/js/' . $file;
 				break;
 		}
 
