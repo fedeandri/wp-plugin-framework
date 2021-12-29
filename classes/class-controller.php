@@ -17,6 +17,82 @@ namespace WpPluginFramework;
 class Controller extends Base {
 
 	/**
+	 * The settings associative array of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      array    $settings_data    Settings options array.
+	 */
+	private $settings_data;
+
+	/**
+	 * Return the settings data associative array.
+	 *
+	 * @param    string $label            Optional settings label to retrieve a specific setting.
+	 * @param    bool   $force_refresh    Optional flag to force reading settings from the database.
+	 * @since    1.0.0
+	 * @return   mixed
+	 */
+	public function get_settings_value( $label, $force_refresh = false ) {
+
+		if ( $force_refresh || empty( $this->settings_data ) ) {
+			$this->settings_data = Model::read_settings();
+		}
+
+		if ( ! empty( $label ) ) {
+			return $this->settings_data[ $label ];
+		}
+
+		return false;
+
+	}
+
+	/**
+	 * Return the settings data associative array.
+	 *
+	 * @param    bool $force_refresh    Optional flag to force reading settings from the database.
+	 * @since    1.0.0
+	 * @return   array
+	 */
+	public function get_settings_data( $force_refresh = false ) {
+
+		if ( $force_refresh ) {
+
+			$this->settings_data = Model::read_settings();
+		}
+
+		return $this->settings_data;
+
+	}
+
+	/**
+	 * Set the settings value for the specified label.
+	 *
+	 * @param    string $label    Settings label.
+	 * @param    string $value    Settings value.
+	 * @since    1.0.0
+	 */
+	public function set_settings_data( $label, $value ) {
+
+		if ( ! empty( $label ) ) {
+
+			$this->settings_data[ $label ] = $value;
+		}
+
+	}
+
+	/**
+	 * Set the settings value for the specified label.
+	 *
+	 * @since    1.0.0
+	 */
+	public function save_settings_data() {
+
+		Model::update_settings( $this->settings_data );
+
+	}
+
+	/**
 	 * Register and enqueue styles and scripts.
 	 *
 	 * @since    1.0.0

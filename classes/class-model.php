@@ -71,24 +71,13 @@ class Model extends Base {
 	 * Read the settings option from the options table.
 	 *
 	 * @since    1.0.0
-	 * @param    string $label    Optional settings label.
 	 * @return   mixed
 	 */
-	public static function read_settings( $label = null ) {
+	public static function read_settings() {
 
 		$settings_option = \WpPluginFramework\get_args( 'options', 'settings' );
 
-		$settings = get_option( $settings_option );
-
-		if ( ! empty( $label ) ) {
-
-			if ( isset( $settings[ $label ] ) ) {
-
-				return $settings[ $label ];
-			}
-
-			return false;
-		}
+		$settings = json_decode( get_option( $settings_option ), true );
 
 		return $settings;
 	}
@@ -97,23 +86,15 @@ class Model extends Base {
 	 * Update the settings option from the options table.
 	 *
 	 * @since    1.0.0
-	 * @param    string $label    Optional settings label.
-	 * @param    string $value    Optional settings value.
+	 * @param    array $settings    Settings associative array.
 	 * @return   bool
 	 */
-	public static function update_settings( $label = null, $value = null ) {
+	public static function update_settings( $settings ) {
 
 		$settings_option = \WpPluginFramework\get_args( 'options', 'settings' );
 
-		$settings = get_option( $settings_option );
-
-		if ( ! empty( $label ) ) {
-
-			$settings[ $label ] = $value;
-		}
-
 		$result = false;
-		$result = update_option( $settings_option, $settings );
+		$result = update_option( $settings_option, wp_json_encode( $settings ) );
 
 		return $result;
 	}
