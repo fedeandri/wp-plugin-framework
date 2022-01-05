@@ -36,6 +36,7 @@ class Activator {
 
 		update_option( $args['options']['version'], $args['plugin']['version'] );
 		update_option( $args['options']['db_version'], $args['database']['version'] );
+		update_option( $args['options']['settings'], '' );
 
 		if ( true === add_option( $args['options']['delete_on_uninstall'] ) ) {
 			update_option( $args['options']['delete_on_uninstall'], 0 );

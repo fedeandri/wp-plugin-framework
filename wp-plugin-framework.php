@@ -56,7 +56,7 @@ function get_args( $group = null, $label = null ) {
 	$plugin['url']      = plugin_dir_url( __FILE__ ); // plugin directory URL.
 	$plugin['basename'] = plugin_basename( __FILE__ ); // plugin_dirname/filename.php.
 	$plugin['version']  = '1.0.0';
-	// textdomain is currently hardcoded.
+	// textdomain is currently hardcoded to allow for Poedit.net to work its magic.
 
 	/* database arguments */
 	$database['version']  = '1.0.0';

@@ -50,9 +50,8 @@ class Shortcodes extends Controller {
 	 */
 	public function form_shortcode_view() {
 
-		$enqueue_list   = array();
-		$file_part_list = array();
-		$data           = array();
+		$enqueue_list = array();
+		$data         = array();
 
 		$enqueue_list[] = 'shortcode-form-public-all.css';
 		$enqueue_list[] = 'shortcode-form-public-all.js';
@@ -60,10 +59,11 @@ class Shortcodes extends Controller {
 		$this->enqueue_files( $enqueue_list );
 
 		$data['prefix']      = $this->get_args( 'plugin', 'prefix' );
-		$data['form_id']     = $this->get_args( 'plugin', 'prefix' ) . '_form';
-		$data['ajax_params'] = $this->get_args( 'plugin', 'prefix' ) . '_ajax_params';
+		$data['form_id']     = $data['prefix'] . '_form';
+		$data['ajax_params'] = $data['prefix'] . '_ajax_params';
 
-		$data['field_name'] = '';
+		$data['field_1']['key'] = $data['prefix'] . '_field_1';
+		$data['field_1']['val'] = '';
 
 		require_once $this->get_args( 'paths', 'app_views' ) . 'public/shortcode-form.php';
 	}
@@ -90,10 +90,10 @@ class Shortcodes extends Controller {
 			$this->enqueue_files( $enqueue_list );
 
 			$data['prefix']           = $this->get_args( 'plugin', 'prefix' );
-			$data['results_id']       = $this->get_args( 'plugin', 'prefix' ) . '_results';
-			$data['modal_id']         = $this->get_args( 'plugin', 'prefix' ) . '_modal';
-			$data['pagination_class'] = $this->get_args( 'plugin', 'prefix' ) . '_pagination';
-			$data['ajax_params']      = $this->get_args( 'plugin', 'prefix' ) . '_ajax_params';
+			$data['results_id']       = $data['prefix'] . '_results';
+			$data['modal_id']         = $data['prefix'] . '_modal';
+			$data['pagination_class'] = $data['prefix'] . '_pagination';
+			$data['ajax_params']      = $data['prefix'] . '_ajax_params';
 
 			require_once $this->get_args( 'paths', 'app_views' ) . 'public/shortcode-feedbacks.php';
 		}

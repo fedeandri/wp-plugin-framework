@@ -72,7 +72,7 @@ class Controller extends Base {
 	 * @param    string $value    Settings value.
 	 * @since    1.0.0
 	 */
-	public function set_settings_data( $label, $value ) {
+	public function set_settings_value( $label, $value ) {
 
 		if ( ! empty( $label ) ) {
 
