@@ -104,6 +104,17 @@ class Controller extends Base {
 	}
 
 	/**
+	 * Turn a string into a slug.
+	 *
+	 * @since    1.0.0
+	 * @param    string $content original string.
+	 */
+	public function sluggify( $content ) {
+		$slug = strtolower( trim( preg_replace( '/\s+/', '-', preg_replace( '/[^a-zA-Z0-9]+/', ' ', $content ) ), '-' ) );
+		return $slug;
+	}
+
+	/**
 	 * Register and enqueue styles and scripts.
 	 *
 	 * @since    1.0.0
