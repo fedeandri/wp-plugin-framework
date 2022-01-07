@@ -28,9 +28,9 @@ class Controller extends Base {
 	/**
 	 * Return the settings data associative array.
 	 *
+	 * @since    1.0.0
 	 * @param    string $label            Optional settings label to retrieve a specific setting.
 	 * @param    bool   $force_refresh    Optional flag to force reading settings from the database.
-	 * @since    1.0.0
 	 * @return   mixed
 	 */
 	public function get_settings_value( $label, $force_refresh = false ) {
@@ -50,8 +50,8 @@ class Controller extends Base {
 	/**
 	 * Return the settings data associative array.
 	 *
-	 * @param    bool $force_refresh    Optional flag to force reading settings from the database.
 	 * @since    1.0.0
+	 * @param    bool $force_refresh    Optional flag to force reading settings from the database.
 	 * @return   array
 	 */
 	public function get_settings_data( $force_refresh = false ) {
@@ -62,6 +62,17 @@ class Controller extends Base {
 		}
 
 		return $this->settings_data;
+
+	}
+
+	/**
+	 * Flush the settings data stored inside the settings_data property.
+	 *
+	 * @since    1.0.0
+	 */
+	public function flush_settings_data() {
+
+		$this->settings_data = null;
 
 	}
 
